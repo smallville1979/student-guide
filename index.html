@@ -7,226 +7,137 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0d;
-    --card: #161616;
-    --accent: #c8f135;
-    --accent2: #ff6b35;
-    --text: #f0f0f0;
-    --muted: #888;
-    --border: #2a2a2a;
+    --bg: #0d0d0d; --card: #161616; --accent: #c8f135;
+    --accent2: #ff6b35; --accent3: #7eb3ff; --text: #f0f0f0;
+    --muted: #888; --border: #2a2a2a;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+ 
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.3rem; padding: 0.7rem 1rem; flex-wrap: wrap;
   }
-
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,241,53,0.12) 0%, transparent 70%);
-  }
-
-  .hero-tag {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    padding: 0.35rem 0.9rem;
-    border-radius: 999px;
-    margin-bottom: 1.8rem;
-    display: inline-block;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 12vw, 10rem);
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-
+  nav a { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.3rem 0.7rem; border-radius: 999px; transition: all 0.2s; }
+  nav a:hover { color: var(--accent); }
+ 
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 2rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,241,53,0.12) 0%, transparent 70%); }
+  .hero-tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 0.35rem 0.9rem; border-radius: 999px; margin-bottom: 1.8rem; display: inline-block; animation: fadeUp 0.6s ease both; }
+  h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9; letter-spacing: 0.02em; animation: fadeUp 0.7s 0.1s ease both; }
   h1 span { color: var(--accent); }
-
-  .hero-sub {
-    max-width: 520px;
-    margin: 1.5rem auto 2.5rem;
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    animation: fadeUp 0.7s 0.2s ease both;
-  }
-
-  .cta-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: fadeUp 0.7s 0.3s ease both;
-  }
-
-  .btn {
-    padding: 0.85rem 2rem;
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
+  .hero-sub { max-width: 540px; margin: 1.5rem auto 2.5rem; color: var(--muted); font-size: 1.05rem; line-height: 1.7; animation: fadeUp 0.7s 0.2s ease both; }
+  .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.7s 0.3s ease both; }
+  .btn { padding: 0.85rem 2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
   .btn-primary { background: var(--accent); color: #0d0d0d; border: none; }
   .btn-primary:hover { background: #d9ff3f; transform: translateY(-2px); }
+  .btn-blue { background: var(--accent3); color: #0d0d0d; border: none; }
+  .btn-blue:hover { background: #a3c8ff; transform: translateY(-2px); }
   .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--muted);
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    animation: bounce 2s infinite;
-  }
+  .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em; animation: bounce 2s infinite; }
   .scroll-hint::after { content: '↓'; font-size: 1.2rem; }
-
-  .stats {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-  }
-
+ 
+  .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
   .stat { padding: 2rem 1rem; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
   .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--accent); line-height: 1; }
   .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.08em; }
-
+ 
   section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
-
   .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-
+  .section-label.blue { color: var(--accent3); }
+  .section-label.orange { color: var(--accent2); }
   h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin-bottom: 1rem; }
-
-  .section-intro { color: var(--muted); max-width: 500px; line-height: 1.7; margin-bottom: 3rem; }
-
+  .section-intro { color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 3rem; }
+ 
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
   .card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .card.blue:hover { border-color: var(--accent3); }
+  .card.orange:hover { border-color: var(--accent2); }
   .card-icon { font-size: 2.2rem; margin-bottom: 1.2rem; }
   .card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.03em; margin-bottom: 0.7rem; }
   .card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
   .card-tip { margin-top: 1rem; font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; }
-
+  .card-tip.blue { color: var(--accent3); }
+  .card-tip.orange { color: var(--accent2); }
+ 
   .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-  .tip-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem 1.4rem;
-    transition: border-color 0.2s;
-  }
+  .tip-row { display: flex; align-items: flex-start; gap: 1rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; transition: border-color 0.2s; }
   .tip-row:hover { border-color: var(--accent2); }
   .tip-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--border); line-height: 1; min-width: 2rem; }
   .tip-text strong { display: block; font-size: 0.95rem; margin-bottom: 0.2rem; }
   .tip-text span { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
-
-  .affiliate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.2rem; }
-
-  .aff-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    transition: all 0.2s;
-    text-decoration: none;
-  }
-  .aff-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
-
-  /* Lloyds card gets special accent */
-  .aff-card.featured { border-color: rgba(200,241,53,0.3); background: linear-gradient(135deg, #161616 0%, #1a2200 100%); }
-  .aff-card.featured:hover { border-color: var(--accent); }
-
-  .aff-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255,107,53,0.15); color: var(--accent2); width: fit-content; }
-  .aff-badge.green { background: rgba(200,241,53,0.15); color: var(--accent); }
-  .aff-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--text); }
-  .aff-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; }
-  .aff-link { font-size: 0.82rem; font-weight: 700; color: var(--accent2); display: flex; align-items: center; gap: 0.3rem; }
-  .aff-link.green { color: var(--accent); }
-
-  .app-highlight {
-    background: linear-gradient(135deg, #161616 0%, #1a2200 100%);
-    border: 1px solid rgba(200,241,53,0.3);
-    border-radius: 20px;
-    padding: 3rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: center;
-    margin-bottom: 2rem;
-  }
+ 
+  .app-highlight { background: linear-gradient(135deg, #161616 0%, #1a2200 100%); border: 1px solid rgba(200,241,53,0.3); border-radius: 20px; padding: 3rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; }
+  .app-highlight.blue { background: linear-gradient(135deg, #161616 0%, #001a2e 100%); border-color: rgba(126,179,255,0.3); }
+  .app-highlight.orange { background: linear-gradient(135deg, #161616 0%, #1a1000 100%); border-color: rgba(255,107,53,0.3); }
   .app-highlight h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
   .app-highlight p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 480px; margin-bottom: 1.2rem; }
   .app-emoji { font-size: 5rem; line-height: 1; }
-
-  .shopping-days { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
-  .day-pill { background: rgba(200,241,53,0.1); border: 1px solid rgba(200,241,53,0.3); color: var(--accent); font-size: 0.85rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 999px; }
-
+ 
+  .pills { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+  .pill { background: rgba(200,241,53,0.1); border: 1px solid rgba(200,241,53,0.3); color: var(--accent); font-size: 0.82rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 999px; }
+  .pill.blue { background: rgba(126,179,255,0.1); border-color: rgba(126,179,255,0.3); color: var(--accent3); }
+  .pill.orange { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.3); color: var(--accent2); }
+ 
+  /* RITUAL */
+  .ritual-card { background: linear-gradient(135deg, #1a0030, #0d0d1a); border: 1px solid rgba(180,100,255,0.3); border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 2rem; }
+  .ritual-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #d4aaff; margin-bottom: 1rem; }
+  .ritual-steps { display: flex; flex-direction: column; gap: 0.8rem; margin: 1.5rem 0; }
+  .ritual-step { background: rgba(180,100,255,0.08); border: 1px solid rgba(180,100,255,0.2); border-radius: 12px; padding: 1rem 1.5rem; color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+  .ritual-affirmation { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #d4aaff; margin-top: 1.5rem; line-height: 1.3; }
+ 
+  /* EXAM GRID */
+  .exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .exam-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; text-align: center; transition: all 0.2s; }
+  .exam-card:hover { border-color: var(--accent3); transform: translateY(-3px); }
+  .exam-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .exam-card h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .exam-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+ 
+  /* HELPLINES */
+  .helpline-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+  .helpline-card { background: linear-gradient(135deg, #161616, #0d1a1a); border: 1px solid rgba(126,179,255,0.2); border-radius: 14px; padding: 1.5rem; text-decoration: none; transition: all 0.2s; display: flex; flex-direction: column; gap: 0.6rem; }
+  .helpline-card:hover { border-color: var(--accent3); transform: translateY(-3px); }
+  .helpline-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--text); }
+  .helpline-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent3); }
+  .helpline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .helpline-contact { font-size: 0.9rem; font-weight: 700; color: var(--accent3); }
+ 
+  /* AFFILIATE */
+  .affiliate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+  .aff-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; transition: all 0.2s; text-decoration: none; }
+  .aff-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
+  .aff-card.featured { border-color: rgba(200,241,53,0.3); background: linear-gradient(135deg, #161616 0%, #1a2200 100%); }
+  .aff-card.featured:hover { border-color: var(--accent); }
+  .aff-card.pension { border-color: rgba(126,179,255,0.3); background: linear-gradient(135deg, #161616 0%, #001a2e 100%); }
+  .aff-card.pension:hover { border-color: var(--accent3); }
+  .aff-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255,107,53,0.15); color: var(--accent2); width: fit-content; }
+  .aff-badge.green { background: rgba(200,241,53,0.15); color: var(--accent); }
+  .aff-badge.blue { background: rgba(126,179,255,0.15); color: var(--accent3); }
+  .aff-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--text); }
+  .aff-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .aff-link { font-size: 0.82rem; font-weight: 700; color: var(--accent2); }
+  .aff-link.green { color: var(--accent); }
+  .aff-link.blue { color: var(--accent3); }
+ 
+  .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.25; }
+  .divider.blue { background: linear-gradient(90deg, transparent, var(--accent3), transparent); }
+ 
   footer { border-top: 1px solid var(--border); text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.85rem; line-height: 1.8; }
   footer strong { color: var(--accent); }
-
+ 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-6px); } }
-
-  .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.25; }
-
+ 
   @media (max-width: 700px) {
-    .stats { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stats { grid-template-columns: repeat(2,1fr); }
+    .stat:nth-child(2) { border-right: none; }
     .tips-grid { grid-template-columns: 1fr; }
     .app-highlight { grid-template-columns: 1fr; }
     .app-emoji { display: none; }
@@ -234,221 +145,351 @@
 </style>
 </head>
 <body>
-
+ 
+<nav>
+  <a href="#food">🍎 Food</a>
+  <a href="#rent">🏠 Rent</a>
+  <a href="#social">👥 Social</a>
+  <a href="#anxiety">🧘 Anxiety</a>
+  <a href="#exams">📚 Exams</a>
+  <a href="#mentalhealth">💙 Mental Health</a>
+  <a href="#future">💰 Future</a>
+  <a href="#deals">🔗 Deals</a>
+</nav>
+ 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">🇬🇧 Free Student Resource — UK Edition</div>
   <h1>STUDENT<br><span>SURVIVAL</span><br>GUIDE</h1>
-  <p class="hero-sub">Rent, food, social life — it's all expensive and overwhelming. Here's the real talk, free tips, and the best deals to stretch your student budget further.</p>
+  <p class="hero-sub">Rent, food, stress, exams, mental health — it's a lot. Here's real talk, free tips, and the best deals to get through uni in one piece.</p>
   <div class="cta-row">
-    <a href="#food" class="btn btn-primary">Show Me the Tips</a>
-    <a href="#deals" class="btn btn-secondary">Free Deals & Apps</a>
+    <a href="#food" class="btn btn-primary">Money Tips</a>
+    <a href="#anxiety" class="btn btn-blue">Mental Health</a>
+    <a href="#deals" class="btn btn-secondary">Free Deals</a>
   </div>
   <div class="scroll-hint">SCROLL</div>
 </div>
-
+ 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat">
-    <div class="stat-num">3</div>
-    <div class="stat-label">Biggest student struggles</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Free advice — always</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">£0</div>
-    <div class="stat-label">Cost to start saving</div>
-  </div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Biggest struggles</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free advice</div></div>
+  <div class="stat"><div class="stat-num">£0</div><div class="stat-label">Cost to start</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Better days ahead</div></div>
 </div>
-
+ 
 <div class="divider"></div>
-
+ 
 <!-- FOOD -->
 <section id="food">
   <div class="section-label">💸 The Biggest Struggle</div>
   <h2>FOOD<br>COSTS</h2>
   <p class="section-intro">Food prices have shot up. Here's how students across the UK are actually beating the system.</p>
-
   <div class="tips-grid">
-    <div class="tip-row">
-      <div class="tip-num">01</div>
-      <div class="tip-text"><strong>Plan your meals weekly</strong><span>Write a meal plan before you shop. You only buy what you need — no waste, no last-minute takeaways.</span></div>
-    </div>
-    <div class="tip-row">
-      <div class="tip-num">02</div>
-      <div class="tip-text"><strong>Shop at Aldi first</strong><span>Aldi is consistently cheapest for UK students. Do your main shop there, top up at Tesco only when needed.</span></div>
-    </div>
-    <div class="tip-row">
-      <div class="tip-num">03</div>
-      <div class="tip-text"><strong>Never shop hungry</strong><span>Sounds obvious — it works. Shopping on a full stomach means you stick to the list and resist temptation.</span></div>
-    </div>
-    <div class="tip-row">
-      <div class="tip-num">04</div>
-      <div class="tip-text"><strong>Cook from scratch</strong><span>Batch cooking saves both time and money. Rice, pasta, lentils, eggs — cheap, filling, and flexible.</span></div>
-    </div>
-    <div class="tip-row">
-      <div class="tip-num">05</div>
-      <div class="tip-text"><strong>Best days: Sun & Mon</strong><span>Quieter stores + more yellow-sticker reduced items. Sunday evenings especially good for bargains.</span></div>
-    </div>
-    <div class="tip-row">
-      <div class="tip-num">06</div>
-      <div class="tip-text"><strong>Make your own lunch</strong><span>A packed lunch saves £5–£8 a day. Over a uni term that's hundreds of pounds back in your pocket.</span></div>
-    </div>
+    <div class="tip-row"><div class="tip-num">01</div><div class="tip-text"><strong>Plan your meals weekly</strong><span>Write a meal plan before you shop. Buy only what you need — no waste, no last-minute takeaways.</span></div></div>
+    <div class="tip-row"><div class="tip-num">02</div><div class="tip-text"><strong>Shop at Aldi first</strong><span>Aldi is consistently cheapest for UK students. Main shop there, small top-ups at Tesco only if needed.</span></div></div>
+    <div class="tip-row"><div class="tip-num">03</div><div class="tip-text"><strong>Never shop hungry</strong><span>Shopping on a full stomach means you stick to the list and avoid impulse buys. It genuinely works.</span></div></div>
+    <div class="tip-row"><div class="tip-num">04</div><div class="tip-text"><strong>Cook from scratch</strong><span>Batch cooking saves both time and money. Rice, pasta, lentils, eggs — cheap, filling, and flexible.</span></div></div>
+    <div class="tip-row"><div class="tip-num">05</div><div class="tip-text"><strong>Best days: Sun & Mon</strong><span>Quieter stores and more yellow-sticker reduced items. Sunday evenings especially great for bargains.</span></div></div>
+    <div class="tip-row"><div class="tip-num">06</div><div class="tip-text"><strong>Make your own lunch</strong><span>A packed lunch saves £5–£8 a day. Over a uni term that's hundreds of pounds back in your pocket.</span></div></div>
   </div>
-
   <div style="margin-top:2rem;">
     <div class="app-highlight">
       <div>
         <h3>🛍️ Too Good To Go</h3>
         <p>Grab surplus food bags from local restaurants, cafes, and supermarkets for a fraction of the price. Surprise bags typically cost £2–£5 and save perfectly good food from being binned. Download free.</p>
-        <div class="shopping-days">
-          <span class="day-pill">Check yellow sticker times</span>
-          <span class="day-pill">Sunday nights = gold</span>
-          <span class="day-pill">Free to download</span>
+        <div class="pills">
+          <span class="pill">Check yellow sticker times</span>
+          <span class="pill">Sunday nights = gold</span>
+          <span class="pill">Free to download</span>
         </div>
       </div>
       <div class="app-emoji">♻️</div>
     </div>
   </div>
 </section>
-
+ 
 <div class="divider"></div>
-
+ 
 <!-- RENT -->
 <section id="rent">
   <div class="section-label">🏠 The Second Struggle</div>
   <h2>RENT &<br>HOUSING</h2>
-  <p class="section-intro">Hidden fees, long summer contracts, and overpriced rooms catch students out every year. Here's what to watch for.</p>
-
+  <p class="section-intro">Hidden fees, long summer contracts, and overpriced rooms catch students out every year.</p>
   <div class="cards">
-    <div class="card">
-      <div class="card-icon">📋</div>
-      <h3>Read EVERY clause</h3>
-      <p>Landlords bury fees in contracts. Read every line before signing. Look for clauses about summer rent, cleaning charges, and early exit penalties.</p>
-      <div class="card-tip">🔎 Ask your uni housing team to check it</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">📅</div>
-      <h3>Avoid Summer Lock-ins</h3>
-      <p>Some contracts run 52 weeks — meaning you pay rent over summer even if you're home. Hunt for 40–44 week contracts instead.</p>
-      <div class="card-tip">⚠️ Always check contract length</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🔍</div>
-      <h3>Start Looking Early</h3>
-      <p>The best student houses go fast — often before Christmas for the following September. Don't leave it until March or you'll be stuck with what's left.</p>
-      <div class="card-tip">🗓️ Start in October/November</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">🏫</div>
-      <h3>Use Your Uni Housing Team</h3>
-      <p>Most universities offer free contract checking. They know local landlords and local scams. Always use this service before signing anything.</p>
-      <div class="card-tip">✅ Totally free at most unis</div>
-    </div>
+    <div class="card"><div class="card-icon">📋</div><h3>Read EVERY clause</h3><p>Landlords bury fees in contracts. Read every line before signing — look for clauses about summer rent, cleaning charges, and early exit penalties.</p><div class="card-tip">🔎 Ask your uni housing team to check it</div></div>
+    <div class="card"><div class="card-icon">📅</div><h3>Avoid Summer Lock-ins</h3><p>Some contracts run 52 weeks — meaning you pay rent over summer even if you're home. Hunt for 40–44 week contracts instead.</p><div class="card-tip">⚠️ Always check contract length</div></div>
+    <div class="card"><div class="card-icon">🔍</div><h3>Start Looking Early</h3><p>The best student houses go fast — often before Christmas for the following September. Don't leave it until March.</p><div class="card-tip">🗓️ Start in October/November</div></div>
+    <div class="card"><div class="card-icon">🏫</div><h3>Use Your Uni Housing Team</h3><p>Most universities offer free contract checking. They know local landlords and local scams. Always use this service before signing anything.</p><div class="card-tip">✅ Totally free at most unis</div></div>
   </div>
 </section>
-
+ 
 <div class="divider"></div>
-
+ 
 <!-- SOCIAL -->
 <section id="social">
   <div class="section-label">👥 The Third Struggle</div>
   <h2>SOCIAL<br>LIFE</h2>
   <p class="section-intro">Making friends at uni is harder than the brochures make it look. Here's what actually works.</p>
-
   <div class="cards">
-    <div class="card">
-      <div class="card-icon">🎯</div>
-      <h3>Join Societies</h3>
-      <p>Societies are the single best way to meet people outside your flat. Sports teams, hobby clubs, volunteering — shared interest makes conversation instant and natural.</p>
-      <div class="card-tip">💡 Join in week 1, even if nervous</div>
+    <div class="card"><div class="card-icon">🎯</div><h3>Join Societies</h3><p>Societies are the single best way to meet people outside your flat. Sports teams, hobby clubs, volunteering — shared interest makes conversation instant and natural.</p><div class="card-tip">💡 Join in week 1, even if nervous</div></div>
+    <div class="card"><div class="card-icon">⏳</div><h3>Be Patient</h3><p>Friendships take time. Most students feel lonely at some point in first year. That's completely normal. Keep showing up and your people will appear.</p><div class="card-tip">🙏 It genuinely gets better</div></div>
+    <div class="card"><div class="card-icon">📚</div><h3>Talk to Course Mates</h3><p>Invite a course mate for coffee or a library session. You already have something in common — use it. These friendships often outlast uni entirely.</p><div class="card-tip">☕ Low stakes, high reward</div></div>
+  </div>
+</section>
+ 
+<div class="divider blue"></div>
+ 
+<!-- ANXIETY -->
+<section id="anxiety">
+  <div class="section-label blue">🧘 Feeling Overwhelmed?</div>
+  <h2>ANXIETY &<br>STRESS</h2>
+  <p class="section-intro">Stress and anxiety are incredibly common at uni. You're not broken — you're human. Here are real tools that help.</p>
+ 
+  <div class="ritual-card">
+    <h3>🕯️ SELF-PROTECTION RITUAL — 2 MINUTE RESET</h3>
+    <p style="color:var(--muted);font-size:0.9rem;margin-bottom:0.5rem;">When anxiety hits and your mind is racing, try this simple grounding practice.</p>
+    <div class="ritual-steps">
+      <div class="ritual-step">1. Find somewhere quiet. Close your eyes.</div>
+      <div class="ritual-step">2. Place your hand on your heart. Feel your heartbeat.</div>
+      <div class="ritual-step">3. Take 3 slow deep breaths — in for 4 counts, hold for 4, out for 6.</div>
+      <div class="ritual-step">4. Repeat quietly to yourself, as many times as you need:</div>
     </div>
-    <div class="card">
-      <div class="card-icon">⏳</div>
-      <h3>Be Patient</h3>
-      <p>Friendships take time. Most students feel lonely at some point in first year. That's normal. Keep showing up and your people will appear.</p>
-      <div class="card-tip">🙏 It genuinely gets better</div>
-    </div>
-    <div class="card">
-      <div class="card-icon">📚</div>
-      <h3>Talk to Course Mates</h3>
-      <p>Invite a course mate for a coffee or library session. You already have something in common — use it. These friendships often outlast uni.</p>
-      <div class="card-tip">☕ Low stakes, high reward</div>
+    <div class="ritual-affirmation">"I am safe. I am protected. I am loved."</div>
+    <p style="color:var(--muted);font-size:0.8rem;margin-top:1.5rem;">This grounding technique brings you back to the present moment and calms your nervous system.</p>
+  </div>
+ 
+  <div class="cards" style="margin-top:2rem;">
+    <div class="card blue"><div class="card-icon">🌬️</div><h3>Box Breathing</h3><p>In for 4 counts, hold for 4, out for 4, hold for 4. Repeat 4 times. Used by military and athletes under extreme pressure — works for exam nerves too.</p><div class="card-tip blue">⚡ Works in under 2 minutes</div></div>
+    <div class="card blue"><div class="card-icon">👋</div><h3>5-4-3-2-1 Grounding</h3><p>Name 5 things you see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste. Instantly pulls you out of panic and into the present moment.</p><div class="card-tip blue">🧠 Classic grounding technique</div></div>
+    <div class="card blue"><div class="card-icon">🚶</div><h3>Move Your Body</h3><p>A 10-minute walk outside genuinely reduces cortisol (stress hormone) levels. You don't need a gym. Fresh air is free and it works immediately.</p><div class="card-tip blue">🌿 Free and instant</div></div>
+    <div class="card blue"><div class="card-icon">😴</div><h3>Protect Your Sleep</h3><p>Everything feels worse when you're exhausted. Anxiety, low mood, and poor focus are all amplified by bad sleep. Treat sleep like a revision session.</p><div class="card-tip blue">💤 7–9 hours is the target</div></div>
+    <div class="card blue"><div class="card-icon">✍️</div><h3>Journal It Out</h3><p>Write down what's worrying you. Getting thoughts out of your head and onto paper reduces their power significantly. Even 5 minutes helps.</p><div class="card-tip blue">📓 No rules — just write</div></div>
+    <div class="card blue"><div class="card-icon">🗣️</div><h3>Talk to Someone</h3><p>Keeping it all inside makes anxiety worse. Tell a friend, family member, or counsellor how you're feeling. Your uni likely has free counselling — use it.</p><div class="card-tip blue">💬 You don't have to do this alone</div></div>
+  </div>
+</section>
+ 
+<div class="divider blue"></div>
+ 
+<!-- EXAMS -->
+<section id="exams">
+  <div class="section-label blue">📚 Exam Season</div>
+  <h2>SURVIVING<br>EXAMS</h2>
+  <p class="section-intro">Exam stress is real. Here's how to prep smart, manage the pressure, and actually remember what you've revised.</p>
+ 
+  <div class="exam-grid">
+    <div class="exam-card"><div class="exam-icon">🗓️</div><h4>Plan Backwards</h4><p>Start from your exam date and work backwards. Block out revision time weekly — don't try to cram it all at the end.</p></div>
+    <div class="exam-card"><div class="exam-icon">🍅</div><h4>Pomodoro Technique</h4><p>25 minutes focused work, 5 minute break. Repeat. After 4 rounds, take a longer break. Prevents burnout and keeps focus sharp.</p></div>
+    <div class="exam-card"><div class="exam-icon">🧠</div><h4>Active Recall</h4><p>Don't just re-read notes. Test yourself. Flashcards, past papers, teaching it back to yourself — these actually work.</p></div>
+    <div class="exam-card"><div class="exam-icon">📵</div><h4>Phone Away</h4><p>One notification breaks your focus for up to 23 minutes. Put it in another room. Use Forest or Freedom app to block distractions.</p></div>
+    <div class="exam-card"><div class="exam-icon">💧</div><h4>Stay Hydrated</h4><p>Even mild dehydration reduces cognitive performance. Keep water on your desk during revision and in the exam hall.</p></div>
+    <div class="exam-card"><div class="exam-icon">🎧</div><h4>Lo-Fi Focus Music</h4><p>Background music without lyrics helps many students focus. YouTube has endless lo-fi study playlists — find what works for you.</p></div>
+    <div class="exam-card"><div class="exam-icon">📝</div><h4>Past Papers Are Gold</h4><p>The best revision is doing past papers under timed conditions. Mark your own work. Identify gaps. Repeat. Nothing beats this.</p></div>
+    <div class="exam-card"><div class="exam-icon">🤝</div><h4>Study Groups</h4><p>Teaching others locks in your own knowledge. Quiz each other, explain concepts out loud. Social revision is underrated.</p></div>
+  </div>
+ 
+  <div style="margin-top:2rem;">
+    <div class="app-highlight blue">
+      <div>
+        <h3>🚨 Exam Panic? Do This Right Now</h3>
+        <p>If you're overwhelmed before an exam — stop. Close your eyes. Do 3 rounds of box breathing (in 4, hold 4, out 4, hold 4). Remind yourself: you have prepared. You know more than you think. One breath at a time.</p>
+        <div class="pills">
+          <span class="pill blue">You've done the work</span>
+          <span class="pill blue">Nerves are normal</span>
+          <span class="pill blue">Breathe first, always</span>
+        </div>
+      </div>
+      <div class="app-emoji">🧘</div>
     </div>
   </div>
 </section>
-
+ 
+<div class="divider blue"></div>
+ 
+<!-- MENTAL HEALTH -->
+<section id="mentalhealth">
+  <div class="section-label blue">💙 You Are Not Alone</div>
+  <h2>MENTAL<br>HEALTH</h2>
+  <p class="section-intro">1 in 4 people experience a mental health issue each year. At uni that number is higher. Help is out there — and it's free.</p>
+ 
+  <div class="helpline-grid">
+    <a href="https://www.nhs.uk/mental-health/" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">NHS — Free UK Healthcare</div>
+      <div class="helpline-name">🏥 NHS Mental Health</div>
+      <div class="helpline-desc">Your first port of call for mental health support in the UK. Find local services, self-referral options, and urgent help through the NHS website.</div>
+      <div class="helpline-contact">nhs.uk/mental-health →</div>
+    </a>
+    <a href="https://everyturn.org" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">Community Mental Health</div>
+      <div class="helpline-name">🌱 Everyturn</div>
+      <div class="helpline-desc">Provides mental health and wellbeing support for communities across the UK. Compassionate, accessible care for people of all ages and backgrounds.</div>
+      <div class="helpline-contact">everyturn.org →</div>
+    </a>
+    <a href="https://www.overcome.org" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">Online CBT Support</div>
+      <div class="helpline-name">💪 Overcome</div>
+      <div class="helpline-desc">Online platform offering CBT-based mental health support, anxiety tools, and self-help programmes. Accessible 24/7 from anywhere in the UK.</div>
+      <div class="helpline-contact">overcome.org →</div>
+    </a>
+    <a href="https://www.samaritans.org" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">Crisis Support — 24/7 Free</div>
+      <div class="helpline-name">📞 Samaritans</div>
+      <div class="helpline-desc">Free, confidential listening service available 24 hours a day, 7 days a week. You don't have to be suicidal to call — just struggling is enough.</div>
+      <div class="helpline-contact">Call FREE: 116 123</div>
+    </a>
+    <a href="https://www.mind.org.uk" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">Mental Health Charity</div>
+      <div class="helpline-name">🧠 Mind</div>
+      <div class="helpline-desc">One of the UK's leading mental health charities. Excellent resources on anxiety, depression, stress, and finding the right support for you.</div>
+      <div class="helpline-contact">mind.org.uk →</div>
+    </a>
+    <a href="https://www.studentminds.org.uk" class="helpline-card" target="_blank" rel="noopener">
+      <div class="helpline-tag">Students Specifically</div>
+      <div class="helpline-name">🎓 Student Minds</div>
+      <div class="helpline-desc">The UK's student mental health charity. Peer support and resources specifically for uni life, from people who actually get what you're going through.</div>
+      <div class="helpline-contact">studentminds.org.uk →</div>
+    </a>
+  </div>
+ 
+  <div style="margin-top:2rem;">
+    <div class="app-highlight blue">
+      <div>
+        <h3>💬 Asking For Help Is Strength</h3>
+        <p>Your uni's counselling service is free and confidential. Most students who use it wish they'd gone sooner. You don't need to be in crisis — feeling stressed, lost, or low is enough reason to reach out. Book an appointment this week.</p>
+        <div class="pills">
+          <span class="pill blue">Free at most universities</span>
+          <span class="pill blue">Completely confidential</span>
+          <span class="pill blue">No judgement whatsoever</span>
+        </div>
+      </div>
+      <div class="app-emoji">💙</div>
+    </div>
+  </div>
+</section>
+ 
 <div class="divider"></div>
-
+ 
+<!-- FUTURE -->
+<section id="future">
+  <div class="section-label orange">💰 Think About Your Future Self</div>
+  <h2>RETIRE<br>EARLY</h2>
+  <p class="section-intro">The earlier you start saving, the less you actually need to put in. Starting at 20 vs 40 makes a truly massive difference.</p>
+ 
+  <div class="app-highlight orange">
+    <div>
+      <h3 style="color:var(--accent2);">🐣 Penfold — Start Your Pension Today</h3>
+      <p>Most students don't think about pensions until it's too late. But starting small now — even £20 a month — can add up to tens of thousands more by retirement. The more you save and the earlier you start, the sooner you can retire. Penfold makes it simple, flexible, and built for people just starting out.</p>
+      <div class="pills" style="margin-bottom:1.2rem;">
+        <span class="pill orange">Start from just £1</span>
+        <span class="pill orange">No employer needed</span>
+        <span class="pill orange">HMRC adds 25% tax top-up</span>
+        <span class="pill orange">Retire earlier</span>
+      </div>
+      <a href="https://account.getpenfold.com/refer/tomgallagher" class="btn btn-secondary" target="_blank" rel="noopener" style="border-color:var(--accent2);color:var(--accent2);">Open Free Penfold Account →</a>
+    </div>
+    <div class="app-emoji">🥚</div>
+  </div>
+ 
+  <div class="cards" style="margin-top:1.5rem;">
+    <div class="card orange"><div class="card-icon">📈</div><h3>Compound Interest</h3><p>£50/month from age 20 could be worth £150,000+ by 60. The same amount from age 40 might reach £30,000. Time is your single biggest asset — use it.</p><div class="card-tip orange">⏰ Every year you wait costs you</div></div>
+    <div class="card orange"><div class="card-icon">🏛️</div><h3>HMRC Boosts You</h3><p>The government adds 25% tax relief to your pension contributions. Put in £80 and it becomes £100 in your pension pot automatically. That's free money.</p><div class="card-tip orange">💸 25% free government top-up</div></div>
+    <div class="card orange"><div class="card-icon">🔥</div><h3>FIRE Movement</h3><p>Financial Independence, Retire Early. By saving seriously in your 20s, some people retire in their 40s or even 30s. It all starts with small habits started now.</p><div class="card-tip orange">🎯 Start the habit today</div></div>
+  </div>
+</section>
+ 
+<div class="divider"></div>
+ 
 <!-- DEALS -->
 <section id="deals">
   <div class="section-label">🔗 Deals & Affiliate Partners</div>
   <h2>FREE<br>DEALS</h2>
   <p class="section-intro">Handpicked offers for UK students. Some links are affiliate links — they cost you nothing and help keep this guide free.</p>
-
+ 
   <div class="affiliate-grid">
-
-    <!-- LLOYDS — updated affiliate link -->
     <a href="https://smallville1979.github.io/lloyds-50/" class="aff-card featured" target="_blank" rel="noopener">
       <div class="aff-badge green">🌟 Featured — Banking</div>
       <div class="aff-name">🏦 Lloyds Bank — Free £50</div>
-      <div class="aff-desc">Open a Lloyds Student Account and get £50 cash. 0% overdraft, free railcard offer, and proper mobile banking. Takes minutes to apply online.</div>
+      <div class="aff-desc">Open a Lloyds Student Account and claim £50 cash. 0% overdraft, free railcard offer, and proper mobile banking. Takes minutes to apply.</div>
       <div class="aff-link green">Claim Your Free £50 →</div>
     </a>
-
-    <!-- TOO GOOD TO GO -->
-    <a href="https://toogoodtogo.com" class="aff-card" target="_blank" rel="noopener">
+ 
+    <a href="https://account.getpenfold.com/refer/tomgallagher" class="aff-card pension" target="_blank" rel="noopener">
+      <div class="aff-badge blue">💰 Pension</div>
+      <div class="aff-name">🐣 Penfold Pension</div>
+      <div class="aff-desc">Start saving for retirement now — even tiny amounts make a huge difference over time. The earlier you start, the earlier you can retire.</div>
+      <div class="aff-link blue">Start Saving Free →</div>
+    </a>
+ 
+    <a href="https://toogoodtogo.com/en-gb" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Food Saving</div>
       <div class="aff-name">♻️ Too Good To Go</div>
-      <div class="aff-desc">Rescue surplus food bags from restaurants and supermarkets near you. £2–5 per bag. 100% free to download and use.</div>
+      <div class="aff-desc">Rescue surplus food bags from restaurants and supermarkets near you. £2–5 per bag. Completely free to download and use right now.</div>
       <div class="aff-link">Download Free →</div>
     </a>
-
-    <!-- ALDI -->
+ 
     <a href="https://www.aldi.co.uk/store-finder" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Groceries</div>
       <div class="aff-name">🛒 Aldi UK</div>
-      <div class="aff-desc">The go-to supermarket for UK students. Consistently the cheapest for weekly staples — plan your meals and shop here first.</div>
+      <div class="aff-desc">The go-to supermarket for UK students. Consistently cheapest for weekly staples — plan your meals and always shop here first.</div>
       <div class="aff-link">Find Nearest Store →</div>
     </a>
-
-    <!-- UNIDAYS -->
+ 
     <a href="https://www.myunidays.com" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Student Discounts</div>
       <div class="aff-name">🎓 UNiDAYS</div>
-      <div class="aff-desc">Free platform for verified student discounts across food, tech, fashion, and travel. Sign up with your student email.</div>
+      <div class="aff-desc">Free verified student discounts across food, tech, fashion, and travel. Sign up with your student email for instant access to hundreds of deals.</div>
       <div class="aff-link">Get Free Discounts →</div>
     </a>
-
-    <!-- STUDENT BEANS -->
+ 
     <a href="https://www.studentbeans.com" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Student Discounts</div>
       <div class="aff-name">💳 Student Beans</div>
-      <div class="aff-desc">Thousands of deals from top brands. Stack with UNiDAYS for maximum savings across everything you buy.</div>
+      <div class="aff-desc">Thousands of deals from top brands. Stack with UNiDAYS for maximum savings. Free to join with your student email.</div>
       <div class="aff-link">Start Saving →</div>
     </a>
-
-    <!-- SPARE ROOM -->
+ 
     <a href="https://www.spareroom.co.uk" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Housing</div>
       <div class="aff-name">🏠 SpareRoom</div>
-      <div class="aff-desc">Find student rooms and flatmates across the UK. Filter by price, area, and bills included. Used by millions of students.</div>
+      <div class="aff-desc">Find student rooms and flatmates across the UK. Filter by price, area, and bills included. Used by millions of UK students every year.</div>
       <div class="aff-link">Find a Room →</div>
     </a>
-
+ 
+    <a href="https://www.samaritans.org" class="aff-card" target="_blank" rel="noopener">
+      <div class="aff-badge blue">Mental Health</div>
+      <div class="aff-name">📞 Samaritans — 116 123</div>
+      <div class="aff-desc">Free confidential support, 24 hours a day, 7 days a week. You don't have to be in crisis to call. Just struggling is enough.</div>
+      <div class="aff-link blue">Call Free: 116 123 →</div>
+    </a>
+ 
+    <a href="https://everyturn.org" class="aff-card" target="_blank" rel="noopener">
+      <div class="aff-badge blue">Mental Health</div>
+      <div class="aff-name">🌱 Everyturn</div>
+      <div class="aff-desc">Community mental health and wellbeing support across the UK. Compassionate, accessible help when you need it most.</div>
+      <div class="aff-link blue">everyturn.org →</div>
+    </a>
+ 
+    <a href="https://www.overcome.org" class="aff-card" target="_blank" rel="noopener">
+      <div class="aff-badge blue">Online Support</div>
+      <div class="aff-name">💪 Overcome</div>
+      <div class="aff-desc">CBT-based online mental health support, anxiety tools, and self-help programmes. Available 24/7 from anywhere — great for students.</div>
+      <div class="aff-link blue">overcome.org →</div>
+    </a>
   </div>
 </section>
-
+ 
 <div class="divider"></div>
-
+ 
 <footer>
   <p style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#f0f0f0;margin-bottom:0.5rem;">STUDENT SURVIVAL GUIDE 🎓</p>
   <p>Free advice for UK students. Share this page with a fellow student who needs it.</p>
   <p style="margin-top:0.8rem;">Some links are affiliate links. They cost you <strong>nothing extra</strong> and help keep this guide free forever.</p>
-  <p style="margin-top:1rem;font-size:0.75rem;">Built with ❤️ for UK students · Too Good To Go · Aldi · <strong>Lloyds Bank</strong></p>
+  <p style="margin-top:0.5rem;">If you're struggling right now — please reach out. <strong>Samaritans: 116 123</strong> (free, 24/7) · NHS 111 · Everyturn · Overcome.org</p>
+  <p style="margin-top:1rem;font-size:0.75rem;">Built with ❤️ for UK students · Lloyds Bank · Too Good To Go · <strong>Penfold</strong> · Everyturn · NHS · Samaritans</p>
 </footer>
-
+ 
 </body>
 </html>
+ 
+
+
