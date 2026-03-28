@@ -21,7 +21,7 @@
     display: flex; align-items: center; justify-content: center;
     gap: 0.3rem; padding: 0.7rem 1rem; flex-wrap: wrap;
   }
-  nav a { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.3rem 0.7rem; border-radius: 999px; transition: all 0.2s; }
+  nav a { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 0.3rem 0.65rem; border-radius: 999px; transition: all 0.2s; }
   nav a:hover { color: var(--accent); }
 
   .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 6rem 2rem 2rem; position: relative; overflow: hidden; }
@@ -30,8 +30,8 @@
   h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9; letter-spacing: 0.02em; animation: fadeUp 0.7s 0.1s ease both; }
   h1 span { color: var(--accent); }
   .hero-sub { max-width: 540px; margin: 1.5rem auto 2.5rem; color: var(--muted); font-size: 1.05rem; line-height: 1.7; animation: fadeUp 0.7s 0.2s ease both; }
-  .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.7s 0.3s ease both; }
-  .btn { padding: 0.85rem 2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
+  .cta-row { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.7s 0.3s ease both; }
+  .btn { padding: 0.8rem 1.6rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-decoration: none; transition: all 0.2s; display: inline-block; }
   .btn-primary { background: var(--accent); color: #0d0d0d; border: none; }
   .btn-primary:hover { background: #d9ff3f; transform: translateY(-2px); }
   .btn-blue { background: var(--accent3); color: #0d0d0d; border: none; }
@@ -40,6 +40,18 @@
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
   .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.75rem; letter-spacing: 0.1em; animation: bounce 2s infinite; }
   .scroll-hint::after { content: '↓'; font-size: 1.2rem; }
+
+  /* BOOKMARK BANNER */
+  .bookmark-banner {
+    background: linear-gradient(135deg, #161616, #1a2200);
+    border-top: 1px solid rgba(200,241,53,0.3);
+    border-bottom: 1px solid rgba(200,241,53,0.3);
+    padding: 1.2rem 2rem; text-align: center;
+  }
+  .bookmark-banner p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .bookmark-banner strong { color: var(--accent); }
+  .bookmark-steps { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+  .bstep { background: rgba(200,241,53,0.08); border: 1px solid rgba(200,241,53,0.2); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 700; color: var(--accent); }
 
   .stats { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
   .stat { padding: 2rem 1rem; border-right: 1px solid var(--border); }
@@ -51,15 +63,17 @@
   .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
   .section-label.blue { color: var(--accent3); }
   .section-label.orange { color: var(--accent2); }
+  .section-label.purple { color: var(--accent5); }
   h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin-bottom: 1rem; }
   .section-intro { color: var(--muted); max-width: 520px; line-height: 1.7; margin-bottom: 3rem; }
 
-  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; }
   .card:hover { border-color: var(--accent); transform: translateY(-4px); }
   .card.blue:hover { border-color: var(--accent3); }
   .card.orange:hover { border-color: var(--accent2); }
   .card.purple:hover { border-color: var(--accent5); }
+  .card.green:hover { border-color: var(--accent); }
   .card-icon { font-size: 2.2rem; margin-bottom: 1.2rem; }
   .card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.03em; margin-bottom: 0.7rem; }
   .card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
@@ -76,9 +90,10 @@
   .tip-text span { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
 
   .app-highlight { border-radius: 20px; padding: 3rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-bottom: 2rem; }
-  .app-highlight.green { background: linear-gradient(135deg, #161616 0%, #1a2200 100%); border: 1px solid rgba(200,241,53,0.3); }
-  .app-highlight.blue { background: linear-gradient(135deg, #161616 0%, #001a2e 100%); border: 1px solid rgba(126,179,255,0.3); }
-  .app-highlight.orange { background: linear-gradient(135deg, #161616 0%, #1a1000 100%); border: 1px solid rgba(255,107,53,0.3); }
+  .app-highlight.green { background: linear-gradient(135deg, #161616, #1a2200); border: 1px solid rgba(200,241,53,0.3); }
+  .app-highlight.blue { background: linear-gradient(135deg, #161616, #001a2e); border: 1px solid rgba(126,179,255,0.3); }
+  .app-highlight.orange { background: linear-gradient(135deg, #161616, #1a1000); border: 1px solid rgba(255,107,53,0.3); }
+  .app-highlight.purple { background: linear-gradient(135deg, #161616, #150a2e); border: 1px solid rgba(155,139,255,0.3); }
   .app-highlight h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
   .app-highlight p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 480px; margin-bottom: 1.2rem; }
   .app-emoji { font-size: 5rem; line-height: 1; }
@@ -87,7 +102,19 @@
   .pill { background: rgba(200,241,53,0.1); border: 1px solid rgba(200,241,53,0.3); color: var(--accent); font-size: 0.82rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 999px; }
   .pill.blue { background: rgba(126,179,255,0.1); border-color: rgba(126,179,255,0.3); color: var(--accent3); }
   .pill.orange { background: rgba(255,107,53,0.1); border-color: rgba(255,107,53,0.3); color: var(--accent2); }
+  .pill.purple { background: rgba(155,139,255,0.1); border-color: rgba(155,139,255,0.3); color: var(--accent5); }
 
+  /* EXPLAINER BOX */
+  .explainer { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
+  .explainer h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin-bottom: 0.8rem; color: var(--accent); }
+  .explainer p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+  .explainer .tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.2rem 0.7rem; border-radius: 999px; margin-bottom: 0.8rem; }
+  .tag-green { background: rgba(200,241,53,0.12); color: var(--accent); }
+  .tag-orange { background: rgba(255,107,53,0.12); color: var(--accent2); }
+  .tag-blue { background: rgba(126,179,255,0.12); color: var(--accent3); }
+  .tag-purple { background: rgba(155,139,255,0.12); color: var(--accent5); }
+
+  /* RITUAL */
   .ritual-card { background: linear-gradient(135deg, #1a0030, #0d0d1a); border: 1px solid rgba(155,139,255,0.3); border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 2rem; }
   .ritual-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #d4aaff; margin-bottom: 1rem; }
   .ritual-steps { display: flex; flex-direction: column; gap: 0.8rem; margin: 1.5rem 0; }
@@ -109,23 +136,45 @@
   .helpline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
   .helpline-contact { font-size: 0.9rem; font-weight: 700; color: var(--accent3); }
 
+  /* SHARE SECTION */
+  .share-box { background: linear-gradient(135deg, #161616, #1a2200); border: 1px solid rgba(200,241,53,0.3); border-radius: 20px; padding: 3rem; text-align: center; }
+  .share-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
+  .share-box p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 520px; margin: 0 auto 2rem; }
+  .social-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .social-btn { display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.9rem 1.2rem; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--border); color: var(--text); background: var(--card); }
+  .social-btn:hover { transform: translateY(-3px); }
+  .social-btn.facebook { border-color: rgba(24,119,242,0.4); }
+  .social-btn.facebook:hover { background: rgba(24,119,242,0.15); border-color: #1877f2; color: #1877f2; }
+  .social-btn.instagram { border-color: rgba(225,48,108,0.4); }
+  .social-btn.instagram:hover { background: rgba(225,48,108,0.15); border-color: #e1306c; color: #e1306c; }
+  .social-btn.reddit { border-color: rgba(255,86,0,0.4); }
+  .social-btn.reddit:hover { background: rgba(255,86,0,0.15); border-color: #ff5600; color: #ff5600; }
+  .social-btn.discord { border-color: rgba(88,101,242,0.4); }
+  .social-btn.discord:hover { background: rgba(88,101,242,0.15); border-color: #5865f2; color: #5865f2; }
+  .social-btn.beermoney { border-color: rgba(255,180,0,0.4); }
+  .social-btn.beermoney:hover { background: rgba(255,180,0,0.15); border-color: #ffb400; color: #ffb400; }
+
   /* AFFILIATE */
   .affiliate-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
   .aff-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem; transition: all 0.2s; text-decoration: none; }
   .aff-card:hover { border-color: var(--accent2); transform: translateY(-3px); }
-  .aff-card.featured { border-color: rgba(200,241,53,0.3); background: linear-gradient(135deg, #161616 0%, #1a2200 100%); }
+  .aff-card.featured { border-color: rgba(200,241,53,0.3); background: linear-gradient(135deg, #161616, #1a2200); }
   .aff-card.featured:hover { border-color: var(--accent); }
-  .aff-card.pension { border-color: rgba(126,179,255,0.3); background: linear-gradient(135deg, #161616 0%, #001a2e 100%); }
+  .aff-card.pension { border-color: rgba(126,179,255,0.3); background: linear-gradient(135deg, #161616, #001a2e); }
   .aff-card.pension:hover { border-color: var(--accent3); }
-  .aff-card.revolut { border-color: rgba(100,180,255,0.3); background: linear-gradient(135deg, #161616 0%, #0a1020 100%); }
+  .aff-card.revolut { border-color: rgba(100,180,255,0.3); background: linear-gradient(135deg, #161616, #0a1020); }
   .aff-card.revolut:hover { border-color: #64b4ff; }
-  .aff-card.cashback { border-color: rgba(126,179,255,0.3); background: linear-gradient(135deg, #0a1e1a 0%, #0d2820 100%); }
+  .aff-card.cashback { border-color: rgba(126,179,255,0.3); background: linear-gradient(135deg, #0a1a18, #0d2820); }
   .aff-card.cashback:hover { border-color: var(--accent3); }
-  .aff-card.gaming { border-color: rgba(255,159,67,0.3); background: linear-gradient(135deg, #161616 0%, #1a1000 100%); }
+  .aff-card.plum { border-color: rgba(155,139,255,0.3); background: linear-gradient(135deg, #150a2e, #1a0d38); }
+  .aff-card.plum:hover { border-color: var(--accent5); }
+  .aff-card.zilch { border-color: rgba(255,107,53,0.3); background: linear-gradient(135deg, #161616, #1a0800); }
+  .aff-card.zilch:hover { border-color: var(--accent2); }
+  .aff-card.gaming { border-color: rgba(255,159,67,0.3); background: linear-gradient(135deg, #161616, #1a1000); }
   .aff-card.gaming:hover { border-color: var(--accent4); }
-  .aff-card.lebara { border-color: rgba(155,139,255,0.3); background: linear-gradient(135deg, #150a2e 0%, #1a0d38 100%); }
+  .aff-card.lebara { border-color: rgba(155,139,255,0.3); background: linear-gradient(135deg, #150a2e, #1a0d38); }
   .aff-card.lebara:hover { border-color: var(--accent5); }
-  .aff-card.kofi { border-color: rgba(255,100,100,0.25); background: linear-gradient(135deg, #161616 0%, #200a0a 100%); }
+  .aff-card.kofi { border-color: rgba(255,100,100,0.25); background: linear-gradient(135deg, #161616, #200a0a); }
   .aff-card.kofi:hover { border-color: #ff6464; }
   .aff-badge { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255,107,53,0.15); color: var(--accent2); width: fit-content; }
   .aff-badge.green { background: rgba(200,241,53,0.15); color: var(--accent); }
@@ -144,16 +193,15 @@
   .aff-link.dkblue { color: #64b4ff; }
   .aff-link.red { color: #ff9999; }
 
-  /* GAMBLING WARNING */
-  .warning-note { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.25); border-radius: 10px; padding: 0.8rem 1.2rem; font-size: 0.78rem; color: var(--accent2); margin-top: 0.5rem; line-height: 1.5; }
+  .warning-note { background: rgba(255,107,53,0.08); border: 1px solid rgba(255,107,53,0.2); border-radius: 10px; padding: 0.8rem 1.2rem; font-size: 0.78rem; color: var(--accent2); margin-top: 0.5rem; line-height: 1.5; }
 
-  /* KO-FI BOX */
   .kofi-box { background: linear-gradient(135deg, #200a0a, #1a0808); border: 1px solid rgba(255,100,100,0.25); border-radius: 20px; padding: 2.5rem; text-align: center; margin-bottom: 2rem; }
   .kofi-box h3 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #ff9999; margin-bottom: 0.8rem; }
   .kofi-box p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; max-width: 480px; margin: 0 auto 1.5rem; }
 
   .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.25; }
   .divider.blue { background: linear-gradient(90deg, transparent, var(--accent3), transparent); }
+  .divider.purple { background: linear-gradient(90deg, transparent, var(--accent5), transparent); }
 
   footer { border-top: 1px solid var(--border); text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.85rem; line-height: 1.8; }
   footer strong { color: var(--accent); }
@@ -175,12 +223,15 @@
 <nav>
   <a href="#food">🍎 Food</a>
   <a href="#rent">🏠 Rent</a>
-  <a href="#social">👥 Social</a>
+  <a href="#money101">💳 Money 101</a>
+  <a href="#energy">⚡ Energy</a>
+  <a href="#save">💜 Save & Spread</a>
+  <a href="#social-nav">👥 Social</a>
   <a href="#anxiety">🧘 Anxiety</a>
   <a href="#exams">📚 Exams</a>
   <a href="#mentalhealth">💙 Mental Health</a>
   <a href="#future">💰 Future</a>
-  <a href="#deals">🔗 Deals</a>
+  <a href="#deals">🔗 All Deals</a>
 </nav>
 
 <!-- HERO -->
@@ -191,9 +242,20 @@
   <div class="cta-row">
     <a href="#food" class="btn btn-primary">Money Tips</a>
     <a href="#anxiety" class="btn btn-blue">Mental Health</a>
-    <a href="#deals" class="btn btn-secondary">Free Deals</a>
+    <a href="#deals" class="btn btn-secondary">All Deals</a>
   </div>
   <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- BOOKMARK BANNER -->
+<div class="bookmark-banner">
+  <p>📌 <strong>Bookmark this page</strong> — come back every time you need it. Pass it to a friend who's struggling. It's free, always will be.</p>
+  <div class="bookmark-steps">
+    <div class="bstep">📱 iPhone: Share → Add to Home Screen</div>
+    <div class="bstep">🤖 Android: Menu → Add to Home Screen</div>
+    <div class="bstep">💻 Desktop: Ctrl+D (or Cmd+D on Mac)</div>
+    <div class="bstep">💬 WhatsApp / Instagram: Just share the link!</div>
+  </div>
 </div>
 
 <!-- STATS -->
@@ -248,8 +310,92 @@
 
 <div class="divider"></div>
 
-<!-- SOCIAL -->
-<section id="social">
+<!-- MONEY 101 — NEW SECTION -->
+<section id="money101">
+  <div class="section-label">💳 Money Basics — No Judgement</div>
+  <h2>MONEY<br>101</h2>
+  <p class="section-intro">Nobody teaches us this stuff in school. Here's what overdrafts, credit cards, Plum, and Zilch actually are — explained simply, no jargon.</p>
+
+  <div class="explainer">
+    <div class="tag tag-orange">📖 What Is An Overdraft?</div>
+    <h3>OVERDRAFTS EXPLAINED</h3>
+    <p>An overdraft lets you spend more money than you actually have in your bank account — your balance goes below £0. Think of it like a short-term loan from your bank.<br><br>
+    <strong style="color:var(--text);">Student overdrafts are special</strong> — most UK banks (like Lloyds, Santander, HSBC) offer 0% interest overdrafts for students, meaning you can borrow up to £1,000–£3,000 and pay nothing extra back, as long as you repay it when you graduate. This is genuinely useful for emergencies — but treat it as a safety net, not spending money. Once you leave uni, the 0% period ends and interest kicks in fast, so pay it back as quickly as possible after graduation.</p>
+  </div>
+
+  <div class="explainer">
+    <div class="tag tag-blue">📖 What Is A Credit Card?</div>
+    <h3>CREDIT CARDS EXPLAINED</h3>
+    <p>A credit card lets you buy things now and pay for them later — usually at the end of the month. The card company pays the shop, then you pay the card company back.<br><br>
+    <strong style="color:var(--text);">Used right, they're brilliant:</strong> you get consumer protections on purchases, cashback rewards, and can build your credit score (which matters for renting and mortgages later).<br><br>
+    <strong style="color:var(--accent2);">Used wrong, they're dangerous:</strong> if you don't pay the full balance every month, interest charges of 20–30% stack up fast. The golden rule — only spend on a credit card what you already have in your bank account, and pay it off in full each month. Never just pay the minimum.</p>
+  </div>
+
+  <div class="explainer">
+    <div class="tag tag-green">💡 Top Credit Trick</div>
+    <h3>BUILD YOUR CREDIT SCORE NOW</h3>
+    <p>Your credit score affects whether you can rent a flat, get a phone contract, or get a mortgage one day. As a student you can start building it for free right now.<br><br>
+    Use a <strong style="color:var(--text);">0% student credit card</strong> for small regular purchases (like your weekly shop), then pay it off in full every single month. You build credit history, pay zero interest, and sometimes earn cashback. Register on the electoral roll at your uni address too — this alone boosts your score significantly. Check your score free at Experian, Clearscore, or Credit Karma.</p>
+  </div>
+
+  <div class="cards" style="margin-top:1rem;">
+    <div class="card green"><div class="card-icon">📊</div><h3>Check Your Credit Free</h3><p>ClearScore and Credit Karma show your full credit report for free, forever. No credit card needed. Check yours now — you might be surprised what's on there.</p><div class="card-tip">🔎 Clearscore.com — completely free</div></div>
+    <div class="card green"><div class="card-icon">🗳️</div><h3>Register To Vote</h3><p>Registering on the electoral roll at your uni address is the single fastest free way to boost your credit score. Takes 5 minutes at gov.uk/register-to-vote. Do it today.</p><div class="card-tip">⚡ Instant credit score boost</div></div>
+    <div class="card green"><div class="card-icon">🚫</div><h3>Avoid Payday Loans</h3><p>Payday loans charge outrageous interest — sometimes 1,500% APR. They're a debt trap. If you're in a cash crisis, your bank's 0% student overdraft, your uni hardship fund, or Citizens Advice are all better options first.</p><div class="card-tip orange">⚠️ Last resort only — always</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ENERGY — NEW SECTION -->
+<section id="energy">
+  <div class="section-label orange">⚡ Secret Energy Tricks</div>
+  <h2>GAS &<br>ELECTRIC</h2>
+  <p class="section-intro">Most students and renters don't know these tricks exist. They do. Use them — they're free money.</p>
+  <div class="cards">
+    <div class="card orange"><div class="card-icon">🎟️</div><h3>CAB Fuel Vouchers</h3><p>Citizens Advice Bureau can provide fuel vouchers to help with gas and electric bills — and you can ask up to <strong style="color:var(--text);">3 times within 6 months</strong>. Most people have no idea this exists. Go to your local CAB office or call them and ask specifically about fuel vouchers.</p><div class="card-tip orange">💡 3 times in 6 months — FREE</div></div>
+    <div class="card orange"><div class="card-icon">🔋</div><h3>Emergency Credit From Your Supplier</h3><p>This is a secret almost nobody knows — if you're on a prepayment meter and can't top up, you can call your energy supplier and ask for <strong style="color:var(--text);">emergency credit</strong>. Every major supplier offers it. They add credit to your meter immediately. You pay it back gradually when you next top up. Never go cold — just call and ask.</p><div class="card-tip orange">📞 Call your supplier and ask directly</div></div>
+    <div class="card orange"><div class="card-icon">🌡️</div><h3>Warm Home Discount</h3><p>If you're a student on a low income or qualifying benefit, you may be entitled to £150 off your energy bill through the Warm Home Discount scheme. Check eligibility via your energy supplier's website — it's automatic for some, but others need to apply.</p><div class="card-tip orange">💷 £150 off — worth checking</div></div>
+    <div class="card orange"><div class="card-icon">☎️</div><h3>Call Before You Struggle</h3><p>If you're falling behind on energy bills, call your supplier before it becomes a crisis. All major suppliers are legally required to offer payment plans, debt support, and hardship funds. Calling early means more options — waiting makes it worse.</p><div class="card-tip orange">🤝 They must help — it's the law</div></div>
+  </div>
+</section>
+
+<div class="divider purple"></div>
+
+<!-- SAVE & SPREAD — PLUM + ZILCH -->
+<section id="save">
+  <div class="section-label purple">💜 Smart Saving & Spreading the Cost</div>
+  <h2>SAVE &<br>SPREAD</h2>
+  <p class="section-intro">Two brilliant tools that help you automatically save what you don't miss — and spread big costs without crippling interest.</p>
+
+  <div class="app-highlight purple">
+    <div>
+      <h3 style="color:var(--accent5);">💜 Plum — Automatically Save Without Thinking</h3>
+      <p>Plum connects to your bank and uses AI to automatically move small amounts you won't miss into savings — usually just a few pounds at a time. It analyses your spending and squirrels away money on your behalf. Over weeks and months it genuinely adds up. You can withdraw anytime. Perfect for students who can never find money to save.</p>
+      <div class="pills" style="margin-bottom:1.2rem;"><span class="pill purple">Automatic savings</span><span class="pill purple">AI-powered</span><span class="pill purple">Withdraw anytime</span><span class="pill purple">Free to use</span></div>
+      <a href="https://friends.withplum.com/r/aZRs2YNDqZ" class="btn btn-secondary" target="_blank" rel="noopener" style="border-color:var(--accent5);color:var(--accent5);">Join Plum Free →</a>
+    </div>
+    <div class="app-emoji">💜</div>
+  </div>
+
+  <div class="app-highlight orange" style="margin-top:0;">
+    <div>
+      <h3 style="color:var(--accent2);">🛍️ Zilch — Buy Now, Pay Later. No Interest.</h3>
+      <p>Zilch lets you spread the cost of purchases over 6 weeks — completely interest free. Unlike credit cards, there's no interest, no revolving debt, just 4 equal payments. Perfect for bigger essential purchases you need now but can't cover in one go. Use it for textbooks, kitchen essentials, or clothing — not luxuries. Always only use BNPL for things you genuinely need.</p>
+      <div class="pills" style="margin-bottom:1.2rem;"><span class="pill orange">0% interest</span><span class="pill orange">4 payments over 6 weeks</span><span class="pill orange">No hidden fees</span></div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="https://customers.payzilch.com/signup?inviteCode=YfTRC0" class="btn btn-secondary" target="_blank" rel="noopener" style="border-color:var(--accent2);color:var(--accent2);">Join Zilch Free →</a>
+      </div>
+      <p style="font-size:0.78rem;color:var(--accent2);margin-top:0.8rem;">⚠️ Buy now, pay later can affect your credit score. Only use for things you genuinely need and can afford to repay.</p>
+    </div>
+    <div class="app-emoji">🛍️</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOCIAL LIFE -->
+<section id="social-nav">
   <div class="section-label">👥 The Third Struggle</div>
   <h2>SOCIAL<br>LIFE</h2>
   <p class="section-intro">Making friends at uni is harder than the brochures make it look. Here's what actually works.</p>
@@ -280,11 +426,11 @@
     <p style="color:var(--muted);font-size:0.8rem;margin-top:1.5rem;">This grounding technique brings you back to the present moment and calms your nervous system. It works.</p>
   </div>
   <div class="cards" style="margin-top:2rem;">
-    <div class="card blue"><div class="card-icon">🌬️</div><h3>Box Breathing</h3><p>In for 4 counts, hold for 4, out for 4, hold for 4. Repeat 4 times. Used by the military under extreme pressure — works just as well for exam nerves and deadline stress.</p><div class="card-tip blue">⚡ Works in under 2 minutes</div></div>
-    <div class="card blue"><div class="card-icon">👋</div><h3>5-4-3-2-1 Grounding</h3><p>Name 5 things you see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste. Instantly pulls you out of panic and back into the present moment.</p><div class="card-tip blue">🧠 Classic grounding technique</div></div>
+    <div class="card blue"><div class="card-icon">🌬️</div><h3>Box Breathing</h3><p>In for 4 counts, hold for 4, out for 4, hold for 4. Repeat 4 times. Used by the military under extreme pressure — works for exam nerves too.</p><div class="card-tip blue">⚡ Works in under 2 minutes</div></div>
+    <div class="card blue"><div class="card-icon">👋</div><h3>5-4-3-2-1 Grounding</h3><p>Name 5 things you see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste. Instantly pulls you out of panic and into the present.</p><div class="card-tip blue">🧠 Classic grounding technique</div></div>
     <div class="card blue"><div class="card-icon">🚶</div><h3>Move Your Body</h3><p>A 10-minute walk outside genuinely reduces cortisol levels. You don't need a gym. Fresh air is free and it works immediately.</p><div class="card-tip blue">🌿 Free and instant</div></div>
     <div class="card blue"><div class="card-icon">😴</div><h3>Protect Your Sleep</h3><p>Everything feels worse when you're exhausted. Anxiety, low mood, and poor focus are all amplified by bad sleep. Treat sleep like a revision session.</p><div class="card-tip blue">💤 7–9 hours is the target</div></div>
-    <div class="card blue"><div class="card-icon">✍️</div><h3>Journal It Out</h3><p>Write down what's worrying you. Getting thoughts out of your head and onto paper reduces their power significantly. Even 5 minutes helps.</p><div class="card-tip blue">📓 No rules — just write</div></div>
+    <div class="card blue"><div class="card-icon">✍️</div><h3>Journal It Out</h3><p>Write down what's worrying you. Getting thoughts out of your head and onto paper reduces their power. Even 5 minutes helps.</p><div class="card-tip blue">📓 No rules — just write</div></div>
     <div class="card blue"><div class="card-icon">🗣️</div><h3>Talk to Someone</h3><p>Keeping it all inside makes anxiety worse. Tell a friend, family member, or counsellor how you're feeling. Your uni likely has free counselling — use it.</p><div class="card-tip blue">💬 You don't have to do this alone</div></div>
   </div>
 </section>
@@ -300,11 +446,11 @@
     <div class="exam-card"><div class="exam-icon">🗓️</div><h4>Plan Backwards</h4><p>Start from your exam date and work backwards. Block out revision time weekly — don't try to cram it all at the end.</p></div>
     <div class="exam-card"><div class="exam-icon">🍅</div><h4>Pomodoro Technique</h4><p>25 minutes focused work, 5 minute break. Repeat. After 4 rounds, take a longer break. Prevents burnout and keeps focus sharp.</p></div>
     <div class="exam-card"><div class="exam-icon">🧠</div><h4>Active Recall</h4><p>Don't just re-read notes. Test yourself. Flashcards, past papers, teaching it back to yourself — these actually work.</p></div>
-    <div class="exam-card"><div class="exam-icon">📵</div><h4>Phone Away</h4><p>One notification breaks your focus for up to 23 minutes. Put it in another room. Use Forest or Freedom app to block distractions.</p></div>
+    <div class="exam-card"><div class="exam-icon">📵</div><h4>Phone Away</h4><p>One notification breaks focus for up to 23 minutes. Use Forest or Freedom app to block distractions.</p></div>
     <div class="exam-card"><div class="exam-icon">💧</div><h4>Stay Hydrated</h4><p>Even mild dehydration reduces cognitive performance. Keep water on your desk during revision and in the exam hall.</p></div>
-    <div class="exam-card"><div class="exam-icon">🎧</div><h4>Lo-Fi Focus Music</h4><p>Background music without lyrics helps many students focus. YouTube has endless lo-fi study playlists — find what works for you.</p></div>
-    <div class="exam-card"><div class="exam-icon">📝</div><h4>Past Papers Are Gold</h4><p>The best revision is doing past papers under timed conditions. Mark your own work. Identify gaps. Repeat. Nothing beats this.</p></div>
-    <div class="exam-card"><div class="exam-icon">🤝</div><h4>Study Groups</h4><p>Teaching others locks in your own knowledge. Quiz each other, explain concepts out loud. Social revision is underrated.</p></div>
+    <div class="exam-card"><div class="exam-icon">🎧</div><h4>Lo-Fi Focus Music</h4><p>Background music without lyrics helps many students focus. YouTube has endless lo-fi study playlists.</p></div>
+    <div class="exam-card"><div class="exam-icon">📝</div><h4>Past Papers Are Gold</h4><p>The best revision is doing past papers under timed conditions. Mark your own work. Identify gaps. Repeat.</p></div>
+    <div class="exam-card"><div class="exam-icon">🤝</div><h4>Study Groups</h4><p>Teaching others locks in your own knowledge. Quiz each other, explain concepts out loud. Seriously underrated.</p></div>
   </div>
   <div style="margin-top:2rem;">
     <div class="app-highlight blue">
@@ -335,13 +481,13 @@
     <a href="https://everyturn.org" class="helpline-card" target="_blank" rel="noopener">
       <div class="helpline-tag">Community Mental Health</div>
       <div class="helpline-name">🌱 Everyturn</div>
-      <div class="helpline-desc">Provides mental health and wellbeing support for communities across the UK. Compassionate, accessible care for people of all backgrounds.</div>
+      <div class="helpline-desc">Mental health and wellbeing support for communities across the UK. Compassionate, accessible care for people of all backgrounds.</div>
       <div class="helpline-contact">everyturn.org →</div>
     </a>
     <a href="https://www.overcome.org" class="helpline-card" target="_blank" rel="noopener">
       <div class="helpline-tag">Online CBT Support</div>
       <div class="helpline-name">💪 Overcome</div>
-      <div class="helpline-desc">Online CBT-based support, anxiety tools, and self-help programmes. Accessible 24/7 from anywhere — no referral or waiting list needed.</div>
+      <div class="helpline-desc">Online CBT-based support, anxiety tools, and self-help programmes. Accessible 24/7 — no referral or waiting list needed.</div>
       <div class="helpline-contact">overcome.org →</div>
     </a>
     <a href="https://www.samaritans.org" class="helpline-card" target="_blank" rel="noopener">
@@ -353,25 +499,15 @@
     <a href="https://www.mind.org.uk" class="helpline-card" target="_blank" rel="noopener">
       <div class="helpline-tag">Mental Health Charity</div>
       <div class="helpline-name">🧠 Mind</div>
-      <div class="helpline-desc">One of the UK's leading mental health charities. Excellent free resources on anxiety, depression, stress, and finding support in your local area.</div>
+      <div class="helpline-desc">One of the UK's leading mental health charities. Excellent free resources on anxiety, depression, stress, and finding local support.</div>
       <div class="helpline-contact">mind.org.uk →</div>
     </a>
     <a href="https://www.studentminds.org.uk" class="helpline-card" target="_blank" rel="noopener">
       <div class="helpline-tag">Students Specifically</div>
       <div class="helpline-name">🎓 Student Minds</div>
-      <div class="helpline-desc">The UK's student mental health charity. Peer support and resources specifically for uni life, from people who actually get what you're going through.</div>
+      <div class="helpline-desc">The UK's student mental health charity. Peer support and resources specifically for uni life, from people who get what you're going through.</div>
       <div class="helpline-contact">studentminds.org.uk →</div>
     </a>
-  </div>
-  <div style="margin-top:2rem;">
-    <div class="app-highlight blue">
-      <div>
-        <h3>💬 Asking For Help Is Strength</h3>
-        <p>Your uni's counselling service is free and confidential. Most students who use it wish they'd gone sooner. You don't need to be in crisis — feeling stressed, lost, or low is enough reason to reach out. Book an appointment this week.</p>
-        <div class="pills"><span class="pill blue">Free at most universities</span><span class="pill blue">Completely confidential</span><span class="pill blue">No judgement whatsoever</span></div>
-      </div>
-      <div class="app-emoji">💙</div>
-    </div>
   </div>
 </section>
 
@@ -392,8 +528,8 @@
     <div class="app-emoji">🥚</div>
   </div>
   <div class="cards" style="margin-top:1.5rem;">
-    <div class="card orange"><div class="card-icon">📈</div><h3>Compound Interest</h3><p>£50/month from age 20 could be worth £150,000+ by 60. The same amount from age 40 might reach £30,000. Time is your single biggest asset — use it.</p><div class="card-tip orange">⏰ Every year you wait costs you</div></div>
-    <div class="card orange"><div class="card-icon">🏛️</div><h3>Government Tops You Up</h3><p>The government adds 25% tax relief to pension contributions. Put in £80 and it automatically becomes £100 in your pot. That's free money from HMRC.</p><div class="card-tip orange">💸 25% free — automatic</div></div>
+    <div class="card orange"><div class="card-icon">📈</div><h3>Compound Interest</h3><p>£50/month from age 20 could be worth £150,000+ by 60. The same from age 40 might reach £30,000. Time is your single biggest asset — use it.</p><div class="card-tip orange">⏰ Every year you wait costs you</div></div>
+    <div class="card orange"><div class="card-icon">🏛️</div><h3>Government Tops You Up</h3><p>The government adds 25% tax relief to pension contributions. Put in £80 and it automatically becomes £100. That's free money from HMRC.</p><div class="card-tip orange">💸 25% free — automatic</div></div>
     <div class="card orange"><div class="card-icon">🔥</div><h3>FIRE Movement</h3><p>Financial Independence, Retire Early. By saving seriously in your 20s, some people retire in their 40s or even 30s. It all starts with small habits started now.</p><div class="card-tip orange">🎯 Start the habit today</div></div>
   </div>
 </section>
@@ -405,7 +541,7 @@
   <div class="kofi-box">
     <h3>☕ This Guide Helped You? Buy Tom a Coffee</h3>
     <p>This guide is completely free and always will be. If it helped you out and you're in a position to, a small Ko-fi tip helps keep guides like this running and free for every student who needs them. Totally optional — no pressure at all.</p>
-    <a href="https://ko-fi.com/tomgallagher" class="btn btn-secondary" target="_blank" rel="noopener" style="border-color:#ff6464;color:#ff9999;">☕ Buy Tom a Coffee →</a>
+    <a href="https://ko-fi.com/tomgallagher" class="btn btn-secondary" target="_blank" rel="noopener" style="border-color:#ff6464;color:#ff9999;">☕ Buy Tom a Coffee →</div>
   </div>
 </section>
 
@@ -413,61 +549,68 @@
 
 <!-- DEALS -->
 <section id="deals">
-  <div class="section-label">🔗 Deals & Affiliate Partners</div>
+  <div class="section-label">🔗 All Deals & Affiliate Partners</div>
   <h2>FREE<br>DEALS</h2>
   <p class="section-intro">Handpicked offers for UK students. Some links are affiliate links — they cost you nothing and help keep this guide free forever.</p>
 
   <div class="affiliate-grid">
 
-    <!-- LLOYDS -->
     <a href="https://smallville1979.github.io/lloyds-50/" class="aff-card featured" target="_blank" rel="noopener">
       <div class="aff-badge green">🌟 Featured — Banking</div>
       <div class="aff-name">🏦 Lloyds Bank — Free £50</div>
-      <div class="aff-desc">Open a Lloyds Student Account and claim £50 cash. 0% overdraft, free railcard offer, and proper mobile banking. Takes minutes to apply online.</div>
+      <div class="aff-desc">Open a Lloyds Student Account and claim £50 cash. 0% overdraft, free railcard offer, and proper mobile banking. Takes minutes to apply.</div>
       <div class="aff-link green">Claim Your Free £50 →</div>
     </a>
 
-    <!-- REVOLUT -->
     <a href="https://revolut.com/referral/?referral-code=tomfd6a!MAR1-26-VR-GB&geo-redirect" class="aff-card revolut" target="_blank" rel="noopener">
       <div class="aff-badge dkblue">💳 Digital Banking</div>
       <div class="aff-name">💳 Revolut</div>
-      <div class="aff-desc">Join over 70 million users on Revolut. Free account, instant spending notifications, budgeting tools, and fee-free spending abroad — perfect for students.</div>
+      <div class="aff-desc">Join 70+ million users. Free account, instant spending notifications, budgeting tools, and fee-free spending abroad. Perfect for students.</div>
       <div class="aff-link dkblue">Join Free with Referral →</div>
     </a>
 
-    <!-- PENFOLD -->
+    <a href="https://friends.withplum.com/r/aZRs2YNDqZ" class="aff-card plum" target="_blank" rel="noopener">
+      <div class="aff-badge purple">💜 Auto-Saving</div>
+      <div class="aff-name">💜 Plum</div>
+      <div class="aff-desc">AI automatically moves small amounts you won't miss into savings. Connects to your bank, analyses your spending, and squirrels money away on your behalf.</div>
+      <div class="aff-link purple">Join Plum Free →</div>
+    </a>
+
+    <a href="https://customers.payzilch.com/signup?inviteCode=YfTRC0" class="aff-card zilch" target="_blank" rel="noopener">
+      <div class="aff-badge">🛍️ Buy Now Pay Later</div>
+      <div class="aff-name">🛍️ Zilch</div>
+      <div class="aff-desc">Spread the cost of purchases over 6 weeks — completely 0% interest. 4 equal payments, no hidden fees. For essentials, not luxuries.</div>
+      <div class="aff-link">Join Zilch Free →</div>
+    </a>
+
     <a href="https://account.getpenfold.com/refer/tomgallagher" class="aff-card pension" target="_blank" rel="noopener">
       <div class="aff-badge blue">💰 Pension</div>
       <div class="aff-name">🐣 Penfold Pension</div>
-      <div class="aff-desc">Start saving for retirement now — even small amounts make a huge difference over time. The earlier you start, the earlier you can retire.</div>
+      <div class="aff-desc">Start saving for retirement now — even small amounts make a huge difference. The earlier you start, the earlier you can retire.</div>
       <div class="aff-link blue">Start Saving Free →</div>
     </a>
 
-    <!-- TOPCASHBACK -->
     <a href="https://www.topcashback.co.uk/ref/q1979" class="aff-card cashback" target="_blank" rel="noopener">
       <div class="aff-badge blue">💸 Cashback</div>
       <div class="aff-name">💰 TopCashback</div>
-      <div class="aff-desc">Get cashback on things you already buy online — energy, insurance, student essentials, and more. Free to join and one of the best cashback sites in the UK.</div>
+      <div class="aff-desc">Earn cashback on things you already buy online — energy, insurance, student essentials, and more. Free to join. Best cashback site in the UK.</div>
       <div class="aff-link blue">Join Free & Earn Cashback →</div>
     </a>
 
-    <!-- TOO GOOD TO GO -->
     <a href="https://toogoodtogo.com/en-gb" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Food Saving</div>
       <div class="aff-name">♻️ Too Good To Go</div>
-      <div class="aff-desc">Rescue surplus food bags from restaurants and supermarkets near you. £2–5 per bag. Completely free to download and use right now.</div>
+      <div class="aff-desc">Rescue surplus food bags from restaurants and supermarkets near you. £2–5 per bag. Completely free to download and use.</div>
       <div class="aff-link">Download Free →</div>
     </a>
 
-    <!-- LEBARA -->
     <a href="https://aklam.io/vY1l8Ryb" class="aff-card lebara" target="_blank" rel="noopener">
       <div class="aff-badge purple">📱 Mobile</div>
       <div class="aff-name">📱 Lebara SIM</div>
-      <div class="aff-desc">Cheap SIM-only plans starting from just a few pounds a month. Great for students who need to stay connected without paying over the odds for their phone bill.</div>
+      <div class="aff-desc">Cheap SIM-only plans from just a few pounds a month. Stay connected without paying over the odds for your phone bill.</div>
       <div class="aff-link purple">Get a Cheap SIM →</div>
     </a>
 
-    <!-- ALDI -->
     <a href="https://www.aldi.co.uk/store-finder" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Groceries</div>
       <div class="aff-name">🛒 Aldi UK</div>
@@ -475,15 +618,13 @@
       <div class="aff-link">Find Nearest Store →</div>
     </a>
 
-    <!-- UNIDAYS -->
     <a href="https://www.myunidays.com" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Student Discounts</div>
       <div class="aff-name">🎓 UNiDAYS</div>
-      <div class="aff-desc">Free verified student discounts across food, tech, fashion, and travel. Sign up with your student email for instant access to hundreds of deals.</div>
+      <div class="aff-desc">Free verified student discounts across food, tech, fashion, and travel. Sign up with your student email for instant access.</div>
       <div class="aff-link">Get Free Discounts →</div>
     </a>
 
-    <!-- STUDENT BEANS -->
     <a href="https://www.studentbeans.com" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Student Discounts</div>
       <div class="aff-name">💳 Student Beans</div>
@@ -491,7 +632,6 @@
       <div class="aff-link">Start Saving →</div>
     </a>
 
-    <!-- SPAREROOM -->
     <a href="https://www.spareroom.co.uk" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge">Housing</div>
       <div class="aff-name">🏠 SpareRoom</div>
@@ -499,7 +639,6 @@
       <div class="aff-link">Find a Room →</div>
     </a>
 
-    <!-- PLAYATOM -->
     <a href="https://playatom.co.uk/register?ref=TOM-C5850D8B" class="aff-card gaming" target="_blank" rel="noopener">
       <div class="aff-badge orange">🎮 Entertainment</div>
       <div class="aff-name">⚡ PlayAtom</div>
@@ -508,15 +647,13 @@
       <div class="warning-note">⚠️ 18+ only. Gambling can be addictive. Please play responsibly. GamStop: gamstop.co.uk | BeGambleAware: begambleaware.org</div>
     </a>
 
-    <!-- SAMARITANS -->
     <a href="https://www.samaritans.org" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge blue">Mental Health</div>
       <div class="aff-name">📞 Samaritans — 116 123</div>
-      <div class="aff-desc">Free confidential support, 24 hours a day, 7 days a week. You don't have to be in crisis to call — just struggling is enough reason to reach out.</div>
+      <div class="aff-desc">Free confidential support, 24 hours a day, 7 days a week. You don't have to be in crisis to call — just struggling is enough.</div>
       <div class="aff-link blue">Call Free: 116 123 →</div>
     </a>
 
-    <!-- EVERYTURN -->
     <a href="https://everyturn.org" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge blue">Mental Health</div>
       <div class="aff-name">🌱 Everyturn</div>
@@ -524,15 +661,13 @@
       <div class="aff-link blue">everyturn.org →</div>
     </a>
 
-    <!-- OVERCOME -->
     <a href="https://www.overcome.org" class="aff-card" target="_blank" rel="noopener">
       <div class="aff-badge blue">Online Support</div>
       <div class="aff-name">💪 Overcome</div>
-      <div class="aff-desc">CBT-based online mental health support and anxiety tools. Available 24/7. No referral needed — just visit the site and start immediately.</div>
+      <div class="aff-desc">CBT-based online mental health support and anxiety tools. Available 24/7. No referral needed — just visit and start.</div>
       <div class="aff-link blue">overcome.org →</div>
     </a>
 
-    <!-- KO-FI -->
     <a href="https://ko-fi.com/tomgallagher" class="aff-card kofi" target="_blank" rel="noopener">
       <div class="aff-badge red">☕ Support</div>
       <div class="aff-name">☕ Buy Tom a Coffee</div>
@@ -545,13 +680,59 @@
 
 <div class="divider"></div>
 
+<!-- BeerMoney + SHARE / COMMUNITY -->
+<section style="max-width:1100px;margin:0 auto;padding:0 2rem 5rem;">
+  <div class="section-label">🍺 Earn Extra Cash Online</div>
+  <h2>BEERMONEY &<br>SIDE HUSTLE</h2>
+  <p class="section-intro">Reddit's BeerMoney community is packed with legitimate ways to earn extra cash online — surveys, cashback, testing apps, and more. Thousands of UK students use it.</p>
+
+  <div class="app-highlight green" style="margin-bottom:3rem;">
+    <div>
+      <h3>🍺 r/beermoneyuk — Free Extra Cash</h3>
+      <p>The BeerMoney subreddit is one of the best-kept secrets for earning extra money online legitimately. Think surveys, referral bonuses, cashback stacking, app testing, and micro-tasks. Not a get-rich-quick scheme — but real extra £10–£100+ a month for minimal effort. The UK version is especially active and full of student-friendly tips.</p>
+      <div class="pills"><span class="pill">Surveys & cashback</span><span class="pill">Referral bonuses</span><span class="pill">App testing</span><span class="pill">Free to join Reddit</span></div>
+      <div style="margin-top:1.2rem;">
+        <a href="https://www.reddit.com/r/beermoneyuk" class="btn btn-primary" target="_blank" rel="noopener">Join r/beermoneyuk →</a>
+      </div>
+    </div>
+    <div class="app-emoji">🍺</div>
+  </div>
+
+  <!-- SHARE & COMMUNITY -->
+  <div class="share-box">
+    <h3>📢 SPREAD THE WORD</h3>
+    <p>This guide is free forever. The more people who see it, the more students it helps. Share it on social, drop it in a group chat, post it in your uni Discord, or just send it to a mate who's struggling with money. It costs nothing and could genuinely change someone's situation.</p>
+    <div class="social-grid">
+      <a href="https://www.facebook.com/groups/" class="social-btn facebook" target="_blank" rel="noopener">
+        👍 Share on Facebook
+      </a>
+      <a href="https://www.instagram.com/" class="social-btn instagram" target="_blank" rel="noopener">
+        📸 Share on Instagram
+      </a>
+      <a href="https://www.reddit.com/r/uniuk" class="social-btn reddit" target="_blank" rel="noopener">
+        🔴 Post on Reddit
+      </a>
+      <a href="https://discord.com/" class="social-btn discord" target="_blank" rel="noopener">
+        💬 Share on Discord
+      </a>
+      <a href="https://www.reddit.com/r/beermoneyuk" class="social-btn beermoney" target="_blank" rel="noopener">
+        🍺 r/BeerMoneyUK
+      </a>
+    </div>
+    <p style="margin-top:2rem;font-size:0.85rem;">📌 <strong style="color:var(--accent);">Bookmark it too</strong> — press <strong style="color:var(--accent);">Ctrl+D</strong> (or Cmd+D on Mac) right now so you always have it.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <footer>
   <p style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#f0f0f0;margin-bottom:0.5rem;">STUDENT SURVIVAL GUIDE 🎓</p>
   <p>Free advice for UK students. Share this page with a fellow student who needs it.</p>
   <p style="margin-top:0.8rem;">Some links are affiliate links. They cost you <strong>nothing extra</strong> and help keep this guide free forever.</p>
   <p style="margin-top:0.5rem;">If you're struggling right now — please reach out. <strong>Samaritans: 116 123</strong> (free, 24/7) · NHS 111 · Everyturn · Overcome.org</p>
   <p style="margin-top:0.5rem;font-size:0.75rem;">🎮 Gambling: 18+ only. Please play responsibly. GamStop: gamstop.co.uk · BeGambleAware: begambleaware.org</p>
-  <p style="margin-top:1rem;font-size:0.75rem;">Built with ❤️ for UK students · <strong>Lloyds · Revolut · Penfold · TopCashback · Lebara · Samaritans · NHS</strong></p>
+  <p style="margin-top:0.5rem;font-size:0.75rem;">⚠️ Zilch & BNPL: Only spend what you can afford to repay. BNPL may affect your credit score.</p>
+  <p style="margin-top:1rem;font-size:0.75rem;">Built with ❤️ for UK students · <strong>Lloyds · Revolut · Plum · Zilch · Penfold · TopCashback · Lebara · Samaritans · NHS</strong></p>
 </footer>
 
 </body>
